@@ -1,33 +1,65 @@
 package com.example.demo.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
- 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Date;
+
+import javax.persistence.*;
+
+import org.hibernate.annotations.ColumnDefault;
 
 import lombok.*;
 
+
 @Entity
-@Table(name="rsvn")
-@Getter
-@Setter
-@ToString
+ @Table(name = "rsvn"
+ , uniqueConstraints = {@UniqueConstraint(name = "uk-name-email", columnNames = { "testByte", "email" })} 
+          ,
+           indexes = {
+                  @Index(name = "ix_a", columnList = "checkinTime, checkoutTime"),
+                  @Index(name = "ix_b", columnList = "createTime, serviceDate", unique = true),
+                  @Index(name = "ix_c", columnList = "testInteger") }
+ )
+@Getter @Setter @ToString
 public class Rsvn extends AEntity     {
     
-    @Id
-    @GeneratedValue
-    long id;
+    private LocalDateTime createTime;
 
-    LocalDateTime createTime;
+    private LocalDateTime checkinTime;
 
-    LocalDateTime checkInTime;
+    private LocalDateTime checkoutTime;
 
-    LocalDateTime checkOutTime;
+    private LocalDate serviceDate;
 
-    LocalDate serviceDate;
+    private Byte testByte;
+
+    private Short testShort;
+
+    private Integer testInteger;
+
+    private Integer testInteger2;
+
+    private BigDecimal testBigDecimal;
+
+    private Float testFloat;
+
+    private Double testDouble;
+
+    private Boolean testBoolean;
+
+    private Date testDate;
+
+    //private Timestamp testTimespan;
+
+    private String testString;
+
+     @Column(length = 20, nullable =false)
+     @ColumnDefault("'empty'")
+     private String name;
+
+    private String email;
+
+     
 
 }
