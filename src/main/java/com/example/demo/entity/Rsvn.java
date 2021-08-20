@@ -1,9 +1,8 @@
 package com.example.demo.entity;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+ 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,22 +16,18 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Rsvn implements Serializable{
+public class Rsvn extends AEntity     {
     
     @Id
     @GeneratedValue
     long id;
 
-    @Column(name = "createTime")
     LocalDateTime createTime;
 
-    @Column(name = "checkInTime")
     LocalDateTime checkInTime;
 
-    @Column(name = "checkOutTime")
     LocalDateTime checkOutTime;
 
-    @Column(name = "serviceDate")
     LocalDate serviceDate;
 
 }
