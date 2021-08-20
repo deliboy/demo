@@ -1,6 +1,5 @@
 package com.example.demo;
 
-
 import com.example.demo.entity.Rsvn;
 import com.example.demo.service.RsvnService;
 
@@ -13,18 +12,17 @@ public class DemoController {
 
     @Autowired
     RsvnService rsvnService;
-    
-    @GetMapping("/")
-    //public  List<Rsvn> index(){
 
-        public  Rsvn index(){
-        var obj= rsvnService.get();
+    @GetMapping("/")
+    // public List<Rsvn> index(){
+
+    public Rsvn index() {
+        var obj = rsvnService.Save();
         return obj;
 
+        // Integer x = com.delisoft.exam.MyUtil.sum(10, 30);
 
-
-        //Integer x = com.delisoft.exam.MyUtil.sum(10, 30);
-        
-        //return "hello world "+x.toString();
+        // return "hello world "+x.toString();
     }
+    
 }

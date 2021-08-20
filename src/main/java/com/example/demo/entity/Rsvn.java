@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -20,8 +21,8 @@ import lombok.*;
                   @Index(name = "ix_a", columnList = "checkinTime, checkoutTime"),
                   @Index(name = "ix_b", columnList = "createTime, serviceDate", unique = true),
                   @Index(name = "ix_c", columnList = "testInteger") }
- )
-@Getter @Setter @ToString
+)
+@Getter @Setter @ToString @Builder
 public class Rsvn extends AEntity     {
     
     private LocalDateTime createTime;
@@ -50,7 +51,7 @@ public class Rsvn extends AEntity     {
 
     private Date testDate;
 
-    //private Timestamp testTimespan;
+    private Timestamp testTimespan;
 
     private String testString;
 
@@ -59,7 +60,5 @@ public class Rsvn extends AEntity     {
      private String name;
 
     private String email;
-
-     
 
 }
